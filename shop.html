@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>DreamSMP Shop</title>
+
+<style>
+body {
+    background: #0a001a;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1 {
+    color: #ff00ff;
+}
+
+.shop {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.item {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    width: 200px;
+    border: 1px solid #ff00ff33;
+}
+
+.btn {
+    background: linear-gradient(45deg,#ff00ff,#8000ff);
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>DreamSMP Shop</h1>
+
+<div class="shop">
+
+    <div class="item">
+        <h2>VIP</h2>
+        <p>5€</p>
+        <div class="btn" onclick="buy('VIP', 5)">Kaufen</div>
+    </div>
+
+    <div class="item">
+        <h2>MVP</h2>
+        <p>10€</p>
+        <div class="btn" onclick="buy('MVP', 10)">Kaufen</div>
+    </div>
+
+    <div class="item">
+        <h2>LEGEND</h2>
+        <p>20€</p>
+        <div class="btn" onclick="buy('LEGEND', 20)">Kaufen</div>
+    </div>
+
+</div>
+
+<script>
+function buy(product, price) {
+    fetch("http://localhost:3000/create-checkout", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ product, price })
+    })
+    .then(res => res.json())
+    .then(data => {
+        window.location = data.url;
+    });
+}
+</script>
+
+</body>
+</html>
