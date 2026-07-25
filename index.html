@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DreamSMP.eu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #07070d;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            height: 80px;
+            background: #08080d;
+            border-bottom: 1px solid #25202e;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 38px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #9d3cff;
+        }
+
+        nav {
+            display: flex;
+            gap: 38px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            color: #a33cff;
+        }
+
+        .discord-top {
+            background: #7028c9;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+        }
+
+        .discord-top:hover {
+            background: #923bfa;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 510px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(4, 5, 12, .95),
+                    rgba(5, 5, 13, .72),
+                    rgba(5, 5, 13, .20)
+                ),
+                url("32947.png");
+
+            background-size: cover;
+            background-position: center 25%;
+
+            padding: 55px 6.5%;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 105px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #9d3cff;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: #c0bdc7;
+            font-size: 20px;
+            line-height: 1.55;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 22px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 230px;
+            height: 68px;
+
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: 500;
+
+            transition: .25s;
+        }
+
+        .play {
+            background: #7028c9;
+            color: white;
+        }
+
+        .play:hover {
+            background: #923bfa;
+            transform: translateY(-2px);
+        }
+
+        .discord-button {
+            border: 1px solid #923bfa;
+            color: #a94cff;
+        }
+
+        .discord-button:hover {
+            background: #7028c9;
+            color: white;
+        }
+
+        /* SERVER INFOS */
+
+        .server-info {
+            background: #08080f;
+            padding: 0 6.3% 10px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .info-card {
+            min-height: 115px;
+
+            background: #0c0c15;
+            border: 1px solid #30203f;
+            border-radius: 10px;
+
+            padding: 27px 30px;
+        }
+
+        .info-card h3 {
+            color: #a345ff;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            font-size: 25px;
+        }
+
+        .online {
+            color: #aaa;
+        }
+
+        .online span {
+            color: #20c55a;
+        }
+
+        /* SHOP */
+
+        .shop {
+            background: #08080f;
+            padding: 18px 6.5% 25px;
+        }
+
+        .shop h2 {
+            font-size: 35px;
+            margin-bottom: 5px;
+        }
+
+        .shop-description {
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .shop-card {
+            background: #0b0b14;
+            border: 1px solid #30203f;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .shop-card h3 {
+            color: #a345ff;
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .shop-card ul {
+            list-style: none;
+            margin-bottom: 17px;
+        }
+
+        .shop-card li {
+            color: #ccc;
+            margin: 7px 0;
+            font-size: 16px;
+        }
+
+        .shop-card li::before {
+            content: "✓";
+            color: #a345ff;
+            font-weight: bold;
+            margin-right: 9px;
+        }
+
+        .buy {
+            display: block;
+            width: 100%;
+
+            background: #7028c9;
+            color: white;
+
+            text-align:
