@@ -1,0 +1,218 @@
+DreamSMP/
+│── index.html
+│── style.css
+│── premium.html
+│── vip.html
+│── checkout.html
+│── script.js
+│
+└── assets/
+    ├── hero.jpg
+    ├── crown.png
+    ├── vip.png
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamSMP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <span>Dream</span>SMP
+    </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#features">Features</a>
+        <a href="#">Vote</a>
+        <a href="#">Regeln</a>
+    </nav>
+
+    <a class="discord-btn" href="https://discord.gg/deinserver" target="_blank">
+        <i class="fab fa-discord"></i>
+        Discord
+    </a>
+
+</header>
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <h1><span>Dream</span>SMP</h1>
+
+        <h2>Willkommen auf unserem Minecraft Server</h2>
+
+        <p>
+            Spiele Survival mit Freunden.<br>
+            Sammle einzigartige Items.<br>
+            Erkunde eine riesige Welt.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#shop" class="play">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Shop
+            </a>
+
+            <a href="https://discord.gg/deinserver" class="discord">
+                <i class="fab fa-discord"></i>
+                Discord
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="info">
+
+    <div class="card">
+        <i class="fa-solid fa-server"></i>
+
+        <div>
+            <h3>Server IP</h3>
+            <p>play.dreamsmp.de</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-users"></i>
+
+        <div>
+            <h3>Spieler Online</h3>
+            <p>0 / 500</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <i class="fab fa-discord"></i>
+
+        <div>
+            <h3>Discord</h3>
+            <p>Jetzt beitreten</p>
+        </div>
+    </div>
+
+</section>
+
+<section class="features" id="features">
+
+<h2>Unsere Features</h2>
+
+<div class="feature-grid">
+
+<div class="feature-box">
+<i class="fa-solid fa-shield"></i>
+<h3>AntiCheat</h3>
+<p>Modernes AntiCheat für faires Spielen.</p>
+</div>
+
+<div class="feature-box">
+<i class="fa-solid fa-gem"></i>
+<h3>Eigene Items</h3>
+<p>Viele neue und exklusive Items.</p>
+</div>
+
+<div class="feature-box">
+<i class="fa-solid fa-earth-europe"></i>
+<h3>Survival</h3>
+<p>Eine riesige Survival-Welt wartet auf dich.</p>
+</div>
+
+</div>
+
+</section>
+<!-- Shop -->
+
+<section class="shop" id="shop">
+
+    <h2>Server Shop</h2>
+
+    <p class="sub">
+        Unterstütze unseren Server und sichere dir exklusive Vorteile.
+    </p>
+
+    <div class="shop-grid">
+
+        <!-- Premium -->
+
+        <div class="shop-card">
+
+            <img src="assets/crown.png" alt="Premium">
+
+            <h3>Premium</h3>
+
+            <h4>4,99 €</h4>
+
+            <ul>
+                <li>✔ Premium Prefix</li>
+                <li>✔ 5 Homes</li>
+                <li>✔ /back</li>
+                <li>✔ Premium Kit</li>
+                <li>✔ Vorrang beim Joinen</li>
+            </ul>
+
+            <button onclick="window.location.href='premium.html'">
+                Premium kaufen
+            </button>
+
+        </div>
+
+        <!-- VIP -->
+
+        <div class="shop-card">
+
+            <img src="assets/vip.png" alt="VIP">
+
+            <h3>VIP</h3>
+
+            <h4>3,99 €</h4>
+
+            <ul>
+                <li>✔ VIP Prefix</li>
+                <li>✔ 3 Homes</li>
+                <li>✔ VIP Kit</li>
+                <li>✔ Kein AFK-Kick</li>
+                <li>✔ Mehr Vorteile</li>
+            </ul>
+
+            <button onclick="window.location.href='vip.html'">
+                VIP kaufen
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>DreamSMP</h2>
+
+    <p>© 2026 DreamSMP. Alle Rechte vorbehalten.</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
