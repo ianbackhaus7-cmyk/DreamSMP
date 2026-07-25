@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium | DreamSMP</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+.buy-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#09090f;
+    padding:100px 20px;
+}
+
+.buy-card{
+    width:600px;
+    background:#14141f;
+    border-radius:20px;
+    padding:40px;
+    border:1px solid rgba(255,255,255,.08);
+    text-align:center;
+}
+
+.buy-card img{
+    width:150px;
+    margin-bottom:20px;
+}
+
+.buy-card h1{
+    font-size:42px;
+    color:#8b3dff;
+}
+
+.price{
+    font-size:34px;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+.buy-card ul{
+    list-style:none;
+    text-align:left;
+    margin:30px 0;
+}
+
+.buy-card li{
+    padding:10px 0;
+}
+
+.buy-card li::before{
+    content:"✔ ";
+    color:#8b3dff;
+}
+
+input{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:10px;
+    background:#202030;
+    color:white;
+    margin-top:20px;
+}
+
+button{
+    width:100%;
+    padding:18px;
+    margin-top:25px;
+    background:#8b3dff;
+    color:white;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+button:hover{
+    background:#9f60ff;
+}
+
+.back{
+    display:block;
+    margin-top:20px;
+    color:#8b3dff;
+    text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<section class="buy-page">
+
+<div class="buy-card">
+
+<img src="assets/crown.png" alt="Premium">
+
+<h1>Premium</h1>
+
+<div class="price">4,99 €</div>
+
+<ul>
+<li>Premium Prefix</li>
+<li>5 Homes</li>
+<li>/back</li>
+<li>Premium Kit</li>
+<li>Priorität beim Joinen</li>
+</ul>
+
+<input
+type="text"
+id="player"
+placeholder="Minecraft-Spielername">
+
+<button onclick="buyPremium()">
+Jetzt kaufen
+</button>
+
+<a href="index.html" class="back">
+← Zurück
+</a>
+
+</div>
+
+</section>
+
+<script>
+
+function buyPremium(){
+
+const player=document.getElementById("player").value;
+
+if(player===""){
+alert("Bitte gib deinen Minecraft-Namen ein.");
+return;
+}
+
+localStorage.setItem("player",player);
+localStorage.setItem("product","Premium");
+localStorage.setItem("price","4,99 €");
+
+window.location.href="checkout.html";
+
+}
+
+</script>
+
+</body>
+</html>
