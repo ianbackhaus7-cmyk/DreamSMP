@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamSMP.eu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #07070d;
+            color: white;
+        }
+
+        header {
+            height: 80px;
+            background: #09090f;
+            border-bottom: 1px solid #24202e;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #9b3cff;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 18px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a43cff;
+        }
+
+        .discord-top {
+            background: #7130c9;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .discord-top:hover {
+            background: #923fff;
+        }
+
+        .hero {
+            min-height: 520px;
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background:
+                linear-gradient(90deg, #09070f 10%, rgba(9,7,15,.65), rgba(9,7,15,.2)),
+                radial-gradient(circle at 75% 50%, #5c1c91 0%, #171020 30%, #07070d 70%);
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 105px);
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #9d3cff;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: #b8b5c0;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        button,
+        .button {
+            border: none;
+            cursor: pointer;
+            padding: 16px 28px;
+            border-radius: 8px;
+            font-size: 17px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #7628d1;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #963fff;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            border: 1px solid #913cff;
+            color: #b76aff;
+            background: transparent;
+        }
+
+        .secondary:hover {
+            background: #7b2bcf;
+            color: white;
+        }
+
+        .server-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 35px 7%;
+            background: #090910;
+        }
+
+        .info-card {
+            background: #0d0d17;
+            border: 1px solid #302044;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            color: #a244ff;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            font-size: 22px;
+        }
+
+        .shop {
+            padding: 70px 7%;
+            background: #08080e;
+        }
+
+        .shop h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .shop > p {
+            color: #aaa;
+            margin-bottom: 35px;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .shop-card {
+            background: linear-gradient(145deg, #11101c, #090910);
+            border: 1px solid #392052;
+            border-radius: 14px;
+            padding: 30px;
+        }
+
+        .shop-card h3 {
+            color: #a345ff;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .shop-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .shop-card li {
+            margin: 12px 0;
+            color: #ccc;
+        }
+
+        .shop-card li::before {
+            content: "✓";
+            color: #a345ff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .shop-card button {
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #06060b;
+            color: #777;
+            border-top: 1px solid #201a2b;
+        }
+
+        .page {
+            display: none;
+            min-height: calc(100vh - 80px);
+            padding: 80px 7%;
+            background: radial-gradient(circle at top, #28103e, #07070d 55%);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .purchase-box {
+            max-width: 650px;
+            margin: auto;
+            background: #11101a;
+            border: 1px solid #63339b;
+            border-radius: 15px;
+            padding: 45px;
+            text-align: center;
+        }
+
+        .purchase-box h1 {
+            color: #a849ff;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .purchase-box p {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .back {
+            display: inline-block;
+            color: #aaa;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 850px) {
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .discord-top {
+                display: none;
+            }
+
+            .hero {
+                padding: 70px 25px;
+            }
+
+            .server-info,
+            .shop-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .shop {
+                padding: 50px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <span>Dream</span>SMP
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#rules">Regeln</a>
+    </nav>
+
+    <a class="discord-top"
+       href="https://discord.gg/g7QCRZgqz"
+       target="_blank">
+        Discord beitreten
+    </a>
+</header>
+
+<main id="homePage">
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1><span>Dream</span>SMP</h1>
+
+            <h2>Dein Abenteuer. Deine Geschichte. Dein SMP.</h2>
+
+            <p>
+                Tritt ein in eine offene Welt voller Möglichkeiten.
+                Baue, kämpfe, erkunde und werde Teil unserer Community!
+            </p>
+
+            <div class="buttons">
+                <button class="primary" onclick="playMinecraft()">
+                    🎮 Jetzt spielen
+                </button>
+
+                <a class="button secondary"
+                   href="https://discord.gg/g7QCRZgqz"
+                   target="_blank">
+                    💬 Discord beitreten
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="server-info">
+
+        <div class="info-card">
+            <h3>IP-Adresse</h3>
+            <p>DreamSMP.eu</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Discord</h3>
+            <p>DreamSMP Community</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Status</h3>
+            <p>🟢 Online</p>
+        </div>
+
+    </section>
+
+    <section class="shop" id="shop">
+
+        <h2>Shop</h2>
+
+        <p>
+            Unterstütze den Server und sichere dir exklusive Vorteile!
+        </p>
+
+        <div class="shop-grid">
+
+            <div class="shop-card">
+                <h3>Premium</h3>
+
+                <div class="price">4,99 €</div>
+
+                <ul>
+                    <li>Farbiger Name im Chat</li>
+                    <li>Zugriff auf Premium-Kits</li>
+                    <li>1 Homeslot</li>
+                    <li>/back Befehl</li>
+                    <li>Und vieles mehr!</li>
+                </ul>
+
+                <button class="primary"
+                        onclick="openPage('premiumPage')">
+                    🛒 Premium kaufen
+                </button>
+            </div>
+
+            <div class="shop-card">
+                <h3>VIP</h3>
+
+                <div class="price">3,99 €</div>
+
+                <ul>
+                    <li>Alle Premium-Vorteile</li>
+                    <li>Mehr Homeslots</li>
+                    <li>VIP-Kit</li>
+                    <li>Kein AFK-Kick</li>
+                    <li>Und vieles mehr!</li>
+                </ul>
+
+                <button class="primary"
+                        onclick="openPage('vipPage')">
+                    🛒 VIP kaufen
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- PREMIUM SEITE -->
+
+<section id="premiumPage" class="page">
+
+    <div class="purchase-box">
+
+        <h1>Premium Rang</h1>
+
+        <p>
+            Du möchtest den Premium-Rang für deinen DreamSMP-Account kaufen?
+        </p>
+
+        <h2>Preis: 4,99 €</h2>
+
+        <br>
+
+        <!-- Später hier deinen Zahlungsanbieter einbauen -->
+        <button class="primary"
+                onclick="buyRank('Premium')">
+            💳 Premium kaufen
+        </button>
+
+        <br>
+
+        <span class="back"
+              onclick="goHome()">
+            ← Zurück zur Startseite
+        </span>
+
+    </div>
+
+</section>
+
+<!-- VIP SEITE -->
+
+<section id="vipPage" class="page">
+
+    <div class="purchase-box">
+
+        <h1>VIP Rang</h1>
+
+        <p>
+            Sichere dir den VIP-Rang und erhalte exklusive Vorteile auf DreamSMP!
+        </p>
+
+        <h2>Preis: 3,99 €</h2>
+
+        <br>
+
+        <!-- Später hier deinen Zahlungsanbieter einbauen -->
+        <button class="primary"
+                onclick="buyRank('VIP')">
+            💳 VIP kaufen
+        </button>
+
+        <br>
+
+        <span class="back"
+              onclick="goHome()">
+            ← Zurück zur Startseite
+        </span>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 DreamSMP.eu – Alle Rechte vorbehalten.
+</footer>
+
+<script>
+
+    function openPage(pageId) {
+
+        document.getElementById("homePage").style.display = "none";
+
+        document.querySelectorAll(".page").forEach(page => {
+            page.classList.remove("active");
+        });
+
+        document.getElementById(pageId).classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    function goHome() {
+
+        document.querySelectorAll(".page").forEach(page => {
+            page.classList.remove("active");
+        });
+
+        document.getElementById("homePage").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    function playMinecraft() {
+
+        const serverIP = "DreamSMP.eu";
+
+        // Versucht Minecraft zu öffnen
+        window.location.href =
+            "minecraft://?addExternalServer=DreamSMP|" + serverIP;
+
+        // Falls Minecraft nicht geöffnet wird
+        setTimeout(() => {
+
+            alert(
+                "Minecraft konnte nicht automatisch geöffnet werden. " +
+                "Füge den Server manuell hinzu: DreamSMP.eu"
+            );
+
+        }, 2000);
+    }
+
+    function buyRank(rank) {
+
+        alert(
+            "Der Kauf von " + rank +
+            " wird bald verfügbar sein!"
+        );
+
+        /*
+        HIER KANN SPÄTER ECHTE ZAHLUNG EINGEBAUT WERDEN.
+
+        Zum Beispiel:
+        - Tebex
+        - Stripe
+        - PayPal
+
+        Wichtig:
+        Für echte Käufe braucht man ein Backend,
+        damit der Rang nach der Zahlung automatisch
+        auf dem Minecraft-Server vergeben wird.
+        */
+    }
+
+</script>
+
+</body>
+</html>
